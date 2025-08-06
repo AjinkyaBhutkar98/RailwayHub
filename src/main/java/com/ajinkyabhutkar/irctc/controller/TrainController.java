@@ -62,7 +62,7 @@ public class TrainController {
 
 
     @GetMapping("/{trainNo}")
-    public ResponseEntity<TrainDTO> getTrain(@PathVariable("trainNo") String trainNo){
+    public ResponseEntity<TrainDTO> getTrain(@PathVariable("trainNo") Long trainNo){
 
         return new ResponseEntity<TrainDTO>(this.trainService.getTrain(trainNo),HttpStatus.OK);
     }
@@ -74,7 +74,7 @@ public class TrainController {
     }
 
     @DeleteMapping("/{trainNo}")
-    public void delete(@PathVariable String trainNo){
+    public void delete(@PathVariable Long trainNo){
 
         this.trainService.delete(trainNo);
 

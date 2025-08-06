@@ -62,7 +62,7 @@ public class TrainService {
     }
 
 
-    public TrainDTO getTrain(String trainNo){
+    public TrainDTO getTrain(Long trainNo){
 
         Train train=trainRepo.findById(trainNo).orElseThrow(()->new RuntimeException("Train not found!!"));
 
@@ -70,7 +70,7 @@ public class TrainService {
 
     }
 
-    public TrainDTO delete(String trainNo){
+    public TrainDTO delete(Long trainNo){
 
         Train train=trainRepo.findById(trainNo).orElseThrow(()->new RuntimeException("Train not found!!"));
 

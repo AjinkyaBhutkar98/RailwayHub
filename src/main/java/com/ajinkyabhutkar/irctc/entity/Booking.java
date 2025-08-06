@@ -30,6 +30,8 @@ public class Booking {
     @JoinColumn(name = "destination_schedule_id")
     private Station destinationStation;
 
+    private String pnr;
+    
     private LocalDate journeyDate;
 
     private BigDecimal totalFare;
@@ -43,6 +45,7 @@ public class Booking {
     @OneToMany(mappedBy = "booking")
     private List<BookingPassenger> passengers;
 
+    //cascade all means when we saved/delete payment and booking same gets changed in db
     @OneToOne(mappedBy = "booking",cascade = CascadeType.ALL)
     private Payment payment;
 
