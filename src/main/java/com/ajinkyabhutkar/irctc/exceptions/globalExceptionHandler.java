@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
@@ -58,5 +59,18 @@ public class globalExceptionHandler {
         ResponseEntity<Map<String,String>> error=new ResponseEntity<>(errorResponse,HttpStatus.BAD_REQUEST);
 
         return error;
+    }
+
+
+
+    @ExceptionHandler(SQLIntegrityConstraintViolationException.class)
+    public ResponseEntity<ErrorResponse> handleSQLIntegrityConstraintViolationException(SQLIntegrityConstraintViolationException exception){
+
+        String customMsg=exception.getMessage().contains("Duplicate entry")?"duplicate code please enter different code":exception.getMessage();
+
+        ErrorResponse response=new ErrorResponse(customMsg,"400",false);
+
+        ResponseEntity<ErrorResponse> errorResponseResponseEntity=new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+        return errorResponseResponseEntity;
     }
 }

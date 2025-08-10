@@ -1,8 +1,11 @@
 package com.ajinkyabhutkar.irctc.service;
 
+import com.ajinkyabhutkar.irctc.dto.StationDto;
 import com.ajinkyabhutkar.irctc.dto.TrainDTO;
+import com.ajinkyabhutkar.irctc.entity.Station;
 import com.ajinkyabhutkar.irctc.entity.Train;
 import com.ajinkyabhutkar.irctc.exceptions.TrainNotFoundException;
+import com.ajinkyabhutkar.irctc.repo.StationRepo;
 import com.ajinkyabhutkar.irctc.repo.TrainRepo;
 import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
@@ -15,14 +18,24 @@ import java.util.List;
 @Service
 public class TrainService {
 
-    @Autowired
-    TrainRepo trainRepo;
+
+    private TrainRepo trainRepo;
+
+    private StationService stationService;
+
+    private  ModelMapper modelMapper;
+
+    private List<Train> trainList=new ArrayList<>();
 
 
     @Autowired
-    private ModelMapper modelMapper;
+    public TrainService(TrainRepo trainRepo, StationService stationService, ModelMapper modelMapper, List<Train> trainList) {
+        this.trainRepo = trainRepo;
+        this.stationService = stationService;
+        this.modelMapper = modelMapper;
+        this.trainList = trainList;
+    }
 
-    List<Train> trainList=new ArrayList<>();
 
     public TrainService(){
 
@@ -32,21 +45,23 @@ public class TrainService {
 
         Train newTrain=new Train();
 
-//        newTrain.setTrainNo(trainDTO.getTrainNo());
-//        newTrain.setRouteName(trainDTO.getRouteName());
-        newTrain.setName(trainDTO.getName());
+        StationDto sourceStationDto=stationService.getStationById(trainDTO.getSourceStation().getId());
+        StationDto destinationStationDto=stationService.getStationById(trainDTO.getDestinationStation().getId());
+        Station sourcestation=modelMapper.map(sourceStationDto,Station.class);
+        Station destinationstation=modelMapper.map(destinationStationDto,Station.class);
+        System.out.println(sourceStationDto.getId());
 
-        //using ModelMapper
-//        Train train=modelMapper.map(trainDTO,Train.class);
+        newTrain.setName(trainDTO.getName());
+        newTrain.setSourceStation(sourcestation);
+        newTrain.setDestinationStation(destinationstation);
+        newTrain.setNumber(trainDTO.getNumber());
+        newTrain.setTotalTravelDistance(trainDTO.getTotalTravelDistance());
+
 
         Train train=trainRepo.save(newTrain);
 
-        TrainDTO trainDTO1=new TrainDTO();
+        TrainDTO trainDTO1=modelMapper.map(train, TrainDTO.class);
 
-//        TrainDTO trainDTO1=modelMapper.map(train, TrainDTO.class);
-        trainDTO1.setName(train.getName());
-//        trainDTO1.setTrainNo(train.getTrainNo());
-//        trainDTO1.setRouteName(train.getRouteName());
 
        return trainDTO1;
     }
