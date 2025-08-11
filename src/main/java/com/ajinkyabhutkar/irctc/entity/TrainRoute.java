@@ -34,7 +34,7 @@ public class TrainRoute {
 
     private LocalTime departureTime;
 
-    private LocalTime haltTime;
+    private Integer haltTime;
 
     private Integer distanceFromSource;
 }

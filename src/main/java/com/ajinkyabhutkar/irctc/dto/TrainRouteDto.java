@@ -16,20 +16,12 @@ import java.time.LocalTime;
 @AllArgsConstructor
 public class TrainRouteDto {
 
-
-    private Train train;
-
     private Long id;
-
-    private Station station;
-
+    private TrainDTO train;
+    private StationDto station;
     private Integer stationOrder;
-
     private LocalTime arrivalTime;
-
     private LocalTime departureTime;
-
-    private LocalTime haltTime;
-
+    private Integer haltTime;
     private Integer distanceFromSource;
 }
