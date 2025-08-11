@@ -73,4 +73,16 @@ public class globalExceptionHandler {
         ResponseEntity<ErrorResponse> errorResponseResponseEntity=new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
         return errorResponseResponseEntity;
     }
+
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<ErrorResponse> handleRuntimeException(RuntimeException runtimeException){
+
+        String msg=runtimeException.getMessage().contains("Train")?"Train Not Found please enter different id":runtimeException.getMessage();
+
+        ErrorResponse errorResponse=new ErrorResponse(msg,"400",false);
+
+        ResponseEntity<ErrorResponse> errorResponseResponseEntity=new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+        return errorResponseResponseEntity;
+
+    }
 }

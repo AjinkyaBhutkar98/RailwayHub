@@ -19,7 +19,7 @@ public class TrainDTO {
     @NotEmpty(message = "Train no cannot be empty !!")
     @Size(min=1,max=10)
 //    @Pattern(regexp = "^\\d+$",message = "Train no pattern failed pls try again")
-    private long id;
+    private Long id;
 
     private String number;
 
@@ -30,6 +30,5 @@ public class TrainDTO {
     private StationDto destinationStation;
 
     private StationDto sourceStation;
-
 
 }
