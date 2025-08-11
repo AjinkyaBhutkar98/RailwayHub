@@ -21,7 +21,7 @@ public class TrainRoute {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     //many routes can reach one station
     @ManyToOne

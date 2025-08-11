@@ -33,9 +33,9 @@ public interface TrainService {
 
     public PagedResponse<TrainDTO> getAllTrains(int page, int size, String sortBy, String sortDir);
 
-    public TrainDTO updateTrain(long id,TrainDTO trainDTO);
+    public TrainDTO updateTrain(Long id,TrainDTO trainDTO);
 
-    public void deleteTrain(long id);
+    public void deleteTrain(Long id);
 
     public List<TrainDTO> searchByName(String name);
 

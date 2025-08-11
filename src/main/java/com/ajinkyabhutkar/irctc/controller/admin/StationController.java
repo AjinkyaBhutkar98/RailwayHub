@@ -45,13 +45,13 @@ public class StationController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<StationDto> getStationById(@PathVariable long id){
+    public ResponseEntity<StationDto> getStationById(@PathVariable Long id){
 
         return new ResponseEntity<>(stationService.getStationById(id),HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<StationDto> updateStation(@PathVariable long id,@RequestBody StationDto stationDto){
+    public ResponseEntity<StationDto> updateStation(@PathVariable Long id,@RequestBody StationDto stationDto){
 
         StationDto updatedStation=stationService.updateStation(id,stationDto);
 
@@ -59,7 +59,7 @@ public class StationController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteStation(@PathVariable long id){
+    public ResponseEntity<Void> deleteStation(@PathVariable Long id){
 
         stationService.deleteStation(id);
 

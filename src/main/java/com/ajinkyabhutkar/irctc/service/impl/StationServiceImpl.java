@@ -63,7 +63,7 @@ public class StationServiceImpl implements StationService {
     }
 
     @Override
-    public StationDto getStationById(long id) {
+    public StationDto getStationById(Long id) {
 
         Station station=stationRepo.findById(id).orElseThrow( ()-> new RuntimeException("Station not found!!"));
 
@@ -72,7 +72,7 @@ public class StationServiceImpl implements StationService {
     }
 
     @Override
-    public StationDto updateStation(long id,StationDto stationDto) {
+    public StationDto updateStation(Long id,StationDto stationDto) {
 
         Station station=stationRepo.findById(id).orElseThrow( ()-> new RuntimeException("Station not found!!"));
 
@@ -88,7 +88,7 @@ public class StationServiceImpl implements StationService {
     }
 
     @Override
-    public void deleteStation(long id) {
+    public void deleteStation(Long id) {
 
         Station station=stationRepo.findById(id).orElseThrow( ()-> new RuntimeException("Station not found!!"));
 

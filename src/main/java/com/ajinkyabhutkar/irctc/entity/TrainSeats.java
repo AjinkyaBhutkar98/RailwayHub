@@ -15,7 +15,7 @@ public class TrainSeats {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     //many seats will be available for scheduled train
     @ManyToOne

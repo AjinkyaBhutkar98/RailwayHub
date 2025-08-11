@@ -15,7 +15,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class StationDto {
 
-    private long id;
+    private Long id;
 
     @NotBlank(message = "Station code should not be blank")
     @Size(min = 3,max=10)

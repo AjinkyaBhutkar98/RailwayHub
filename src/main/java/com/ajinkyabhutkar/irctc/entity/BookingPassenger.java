@@ -13,7 +13,7 @@ public class BookingPassenger {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     //many passengers can book train for one booking
     @ManyToOne

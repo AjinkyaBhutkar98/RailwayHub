@@ -16,9 +16,9 @@ public interface StationService {
 
      PagedResponse<StationDto> getAllStations(int page, int size, String sortBy, String sortDir);
 
-     StationDto getStationById(long id);
+     StationDto getStationById(Long id);
 
-     StationDto updateStation(long id,StationDto stationDto);
+     StationDto updateStation(Long id,StationDto stationDto);
 
-     void deleteStation(long id);
+     void deleteStation(Long id);
 }

@@ -113,7 +113,7 @@ public class TrainServiceImpl implements TrainService{
 
     }
 
-    public TrainDTO updateTrain(long id,TrainDTO trainDTO){
+    public TrainDTO updateTrain(Long id,TrainDTO trainDTO){
 
         Train train=trainRepo.findById(id).orElseThrow(()->new RuntimeException("Train not found!!"));
         train.setName(trainDTO.getName());
@@ -128,7 +128,7 @@ public class TrainServiceImpl implements TrainService{
 
     }
 
-    public void deleteTrain(long id){
+    public void deleteTrain(Long id){
 
         Train train=trainRepo.findById(id).orElseThrow(()->new RuntimeException("Train not found!!"));
 
