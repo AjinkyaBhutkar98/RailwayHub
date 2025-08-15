@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity(name = "irctc_train_schedule")
@@ -18,7 +19,7 @@ public class TrainSchedule {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDate runDate;
+    private LocalDateTime runDate;
 
     private Integer availableSeats;
 
@@ -35,8 +36,6 @@ public class TrainSchedule {
 
     @OneToMany(mappedBy = "trainSchedule")
     private List<Booking> bookings;
-
-
 
 
 }
