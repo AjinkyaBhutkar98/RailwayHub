@@ -33,8 +33,8 @@ public class SecurityConfig {
                         request.requestMatchers("/auth/login").
                                 permitAll()
                                 .anyRequest()
-                                .authenticated()
-
+//                                .authenticated()
+                                .permitAll()
                 );
         httpSecurity.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         httpSecurity.exceptionHandling(e -> e.authenticationEntryPoint(jwtAuthenticationEntryPoint));

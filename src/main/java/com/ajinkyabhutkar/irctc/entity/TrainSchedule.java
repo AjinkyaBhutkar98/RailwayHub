@@ -7,7 +7,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Entity(name = "irctc_train_schedule")
+@Entity
+@Table(name = "irctc_train_schedule")
 @Getter
 @Setter
 @NoArgsConstructor

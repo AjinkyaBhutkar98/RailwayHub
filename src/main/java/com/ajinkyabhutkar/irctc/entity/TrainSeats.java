@@ -4,8 +4,11 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
-@Entity(name="irctc_train_seats")
+@Entity
+@Table(name="irctc_train_seats")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -33,6 +36,18 @@ public class TrainSeats {
     //if 3 out of 50 books next booking will start from 4
     private Integer nextToAssign=1;
 
-    private BigDecimal price;
+    private Double price;
+
+    public boolean isSeatAvailable(int seatsToBook){
+
+        return seatsToBook < availableSeats;
+
+    }
+
+    private Integer seatNumberToAssign;
+
+    private Integer seatOrder;
+
+
 }
 
