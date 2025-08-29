@@ -4,19 +4,20 @@ import com.ajinkyabhutkar.irctc.config.security.JwtHelper;
 import com.ajinkyabhutkar.irctc.dto.ErrorResponse;
 import com.ajinkyabhutkar.irctc.dto.JwtResponse;
 import com.ajinkyabhutkar.irctc.dto.LoginRequest;
+import com.ajinkyabhutkar.irctc.dto.UserDto;
+import com.ajinkyabhutkar.irctc.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
@@ -28,17 +29,18 @@ public class AuthController {
 
     private JwtHelper jwtHelper;
 
+    private UserService userService;
+
     @Autowired
-    public AuthController(AuthenticationManager authenticationManager, UserDetailsService userDetailsService, JwtHelper jwtHelper) {
+    public AuthController(AuthenticationManager authenticationManager, UserDetailsService userDetailsService, JwtHelper jwtHelper,UserService userService) {
         this.authenticationManager = authenticationManager;
         this.userDetailsService = userDetailsService;
         this.jwtHelper = jwtHelper;
+        this.userService=userService;
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(
-            @RequestBody LoginRequest loginRequest
-    ) {
+    public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
 
 
         //token generate code
@@ -62,15 +64,34 @@ public class AuthController {
             System.out.println("Invalid Credentials");
             ErrorResponse errorResponse = new ErrorResponse(
                     "The username or password you entered is incorrect.",
-                    "400",
+                    "401",
                     false
             );
 
 
-            return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(errorResponse, HttpStatus.UNAUTHORIZED);
         }
 
 
+    }
+    //NORMAL user register
+    @PostMapping("/register")
+    public ResponseEntity<UserDto> registerUser(@Valid @RequestBody UserDto userDto){
+
+        return new ResponseEntity<>(userService.registerUser(userDto),HttpStatus.CREATED);
+    }
+
+    //admin
+    @PostMapping("/admin/register")
+    public ResponseEntity<UserDto> registerAdmin(@Valid @RequestBody UserDto userDto){
+
+        return new ResponseEntity<>(userService.registerAdmin(userDto),HttpStatus.CREATED);
+    }
+
+    @GetMapping("/test")
+    @PreAuthorize("hasRole('NORMAL')")
+    public String test(){
+        return "testing";
     }
 
 }
