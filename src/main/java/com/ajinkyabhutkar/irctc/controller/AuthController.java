@@ -6,6 +6,7 @@ import com.ajinkyabhutkar.irctc.dto.JwtResponse;
 import com.ajinkyabhutkar.irctc.dto.LoginRequest;
 import com.ajinkyabhutkar.irctc.dto.UserDto;
 import com.ajinkyabhutkar.irctc.service.UserService;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -40,6 +41,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
+    @Operation(summary = "login and get token", description = "this api is for generating token for user/admin")
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
 
 
@@ -76,6 +78,7 @@ public class AuthController {
     }
     //NORMAL user register
     @PostMapping("/register")
+    @Operation(summary = "create new user", description = "this api is for registering new user")
     public ResponseEntity<UserDto> registerUser(@Valid @RequestBody UserDto userDto){
 
         return new ResponseEntity<>(userService.registerUser(userDto),HttpStatus.CREATED);
@@ -83,6 +86,7 @@ public class AuthController {
 
     //admin
     @PostMapping("/admin/register")
+    @Operation(summary = "create new admin", description = "this api is for registering new admin")
     public ResponseEntity<UserDto> registerAdmin(@Valid @RequestBody UserDto userDto){
 
         return new ResponseEntity<>(userService.registerAdmin(userDto),HttpStatus.CREATED);

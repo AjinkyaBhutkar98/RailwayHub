@@ -2,6 +2,11 @@ package com.ajinkyabhutkar.irctc.config;
 
 import com.ajinkyabhutkar.irctc.interceptors.MyCustomInterceptors;
 import com.ajinkyabhutkar.irctc.interceptors.TimeLoggerInterceptor;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
+import io.swagger.v3.oas.annotations.info.Contact;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
 import org.modelmapper.ModelMapper;
@@ -12,6 +17,17 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
+@OpenAPIDefinition(
+        info = @io.swagger.v3.oas.annotations.info.Info(
+        title = "API Documentation for IRCTC Clone by Ajinkya Bhutkar",
+        description = "this project is inspired by irctc",
+        summary = "implements features such as spring rest apis,security,swagger,token based authentication,monolithic architecture",
+        contact = @Contact(name = "ajinkya bhutkar ",email = "ajinkyabhutkar59@gmail.com",url = "https://github.com/AjinkyaBhutkar98")
+)
+        ,security = @SecurityRequirement(name = "bearerAuth")
+)
+//security = @SecurityRequirement(name = "bearerAuth") these both should have same name
+@SecurityScheme(name = "bearerAuth",type = SecuritySchemeType.HTTP,scheme = "bearer",bearerFormat = "JWT")
 public class ProjectConfig implements WebMvcConfigurer {
 
 
@@ -48,7 +64,7 @@ public class ProjectConfig implements WebMvcConfigurer {
         return new OpenAPI()
                 .info(
                         new Info()
-                                .title("IRCTC Clone API by Ajinkya Bhutkar")
+                                .title("IRCTC Clone by Ajinkya Bhutkar")
                                 .version("1.0.0")
                                 .description("API documentation for IRCTC project")
                                 .termsOfService("https://www.irctc.co.in/terms-of-service")

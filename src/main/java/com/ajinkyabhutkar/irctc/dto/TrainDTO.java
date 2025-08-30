@@ -1,6 +1,7 @@
 package com.ajinkyabhutkar.irctc.dto;
 
 import com.ajinkyabhutkar.irctc.entity.Station;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
@@ -21,8 +22,10 @@ public class TrainDTO {
 //    @Pattern(regexp = "^\\d+$",message = "Train no pattern failed pls try again")
     private Long id;
 
+    @Schema(description = "Train number ")
     private String number;
 
+    @Schema(description = "train name",example = "Mumbai-Konkan",requiredMode = Schema.RequiredMode.REQUIRED)
     private String name;
 
     private Integer totalTravelDistance;
