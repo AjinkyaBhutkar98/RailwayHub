@@ -1,0 +1,739 @@
+2025-08-31T01:25:49.272+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-10] c.a.i.c.s.JwtAuthenticationFilter        : Request to the JWT Filter : Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhamlua3lhYmh1dGthciIsImlhdCI6MTc1NTkyOTAwNywiZXhwIjoxNzU1OTI5MzA3fQ.1HeRQh8m8lWf3sRmabNNlHz8szc2zP4Ap-JMjHImFAW3rtq8fcPM0VqvAzIad__eLzZwSKut97QvhvX5Shj9sg
+2025-08-31T01:25:49.276+05:30 ERROR 8976 --- [irctc-backend] [http-nio-8080-exec-10] c.a.i.c.s.JwtAuthenticationFilter        : JWT Token has expired
+2025-08-31T01:25:49.277+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : POST "/auth/login", parameters={}
+2025-08-31T01:25:49.277+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ajinkyabhutkar.irctc.controller.AuthController#login(LoginRequest)
+2025-08-31T01:25:49.278+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [LoginRequest[username=admin@gmail.com, password=8421628693@Abc]]
+2025-08-31T01:25:49.280+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.createtime,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone 
+    from
+        irctc_users u1_0 
+    where
+        u1_0.email=?
+2025-08-31T01:25:49.282+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        r1_0.irctc_users_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        irctc_users_roles r1_0 
+    join
+        irctc_roles r1_1 
+            on r1_1.id=r1_0.roles_id 
+    where
+        r1_0.irctc_users_id=?
+2025-08-31T01:25:49.342+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.createtime,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone 
+    from
+        irctc_users u1_0 
+    where
+        u1_0.email=?
+2025-08-31T01:25:49.344+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2025-08-31T01:25:49.344+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [JwtResponse[token=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NTY1ODM3NDksImV4c (truncated)...]
+2025-08-31T01:25:49.345+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-31T01:26:02.437+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-5] c.a.i.c.s.JwtAuthenticationFilter        : Request to the JWT Filter : Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NTY1ODM3NDksImV4cCI6MTc1NjU4NzM0OX0.LeXYPN1paKzaHa-0ksGMFwgN5A5SJbF-EFeOD8-bGtJrBhTwGiySTxQj0heyMHMmbmxpxzUFVsRaSZ98BYhdIA
+2025-08-31T01:26:02.437+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-5] c.a.i.c.s.JwtAuthenticationFilter        : user name : admin@gmail.com
+2025-08-31T01:26:02.438+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.createtime,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone 
+    from
+        irctc_users u1_0 
+    where
+        u1_0.email=?
+2025-08-31T01:26:02.440+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        r1_0.irctc_users_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        irctc_users_roles r1_0 
+    join
+        irctc_roles r1_1 
+            on r1_1.id=r1_0.roles_id 
+    where
+        r1_0.irctc_users_id=?
+2025-08-31T01:26:02.442+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-5] c.a.i.c.s.JwtAuthenticationFilter        : Authentication set in the Security Context
+2025-08-31T01:26:02.442+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/admin/stations", parameters={}
+2025-08-31T01:26:02.442+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ajinkyabhutkar.irctc.controller.admin.StationController#createStation(StationDto)
+2025-08-31T01:26:02.443+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.ajinkyabhutkar.irctc.dto.StationDto@4a15bce3]
+2025-08-31T01:26:02.470+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    insert 
+    into
+        irctc_stations
+        (city, code, createtime, name, state) 
+    values
+        (?, ?, ?, ?, ?)
+2025-08-31T01:26:02.482+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2025-08-31T01:26:02.482+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.ajinkyabhutkar.irctc.dto.StationDto@8ab21c7]
+2025-08-31T01:26:02.483+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2025-08-31T01:26:16.953+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-2] c.a.i.c.s.JwtAuthenticationFilter        : Request to the JWT Filter : Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NTY1ODM3NDksImV4cCI6MTc1NjU4NzM0OX0.LeXYPN1paKzaHa-0ksGMFwgN5A5SJbF-EFeOD8-bGtJrBhTwGiySTxQj0heyMHMmbmxpxzUFVsRaSZ98BYhdIA
+2025-08-31T01:26:16.953+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-2] c.a.i.c.s.JwtAuthenticationFilter        : user name : admin@gmail.com
+2025-08-31T01:26:16.954+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.createtime,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone 
+    from
+        irctc_users u1_0 
+    where
+        u1_0.email=?
+2025-08-31T01:26:16.956+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        r1_0.irctc_users_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        irctc_users_roles r1_0 
+    join
+        irctc_roles r1_1 
+            on r1_1.id=r1_0.roles_id 
+    where
+        r1_0.irctc_users_id=?
+2025-08-31T01:26:16.958+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-2] c.a.i.c.s.JwtAuthenticationFilter        : Authentication set in the Security Context
+2025-08-31T01:26:16.958+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/admin/stations", parameters={}
+2025-08-31T01:26:16.958+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ajinkyabhutkar.irctc.controller.admin.StationController#createStation(StationDto)
+2025-08-31T01:26:16.958+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.ajinkyabhutkar.irctc.dto.StationDto@663354a2]
+2025-08-31T01:26:16.960+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    insert 
+    into
+        irctc_stations
+        (city, code, createtime, name, state) 
+    values
+        (?, ?, ?, ?, ?)
+2025-08-31T01:26:16.962+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2025-08-31T01:26:16.962+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.ajinkyabhutkar.irctc.dto.StationDto@5c4c696e]
+2025-08-31T01:26:16.963+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2025-08-31T01:26:30.770+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-3] c.a.i.c.s.JwtAuthenticationFilter        : Request to the JWT Filter : Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NTY1ODM3NDksImV4cCI6MTc1NjU4NzM0OX0.LeXYPN1paKzaHa-0ksGMFwgN5A5SJbF-EFeOD8-bGtJrBhTwGiySTxQj0heyMHMmbmxpxzUFVsRaSZ98BYhdIA
+2025-08-31T01:26:30.770+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-3] c.a.i.c.s.JwtAuthenticationFilter        : user name : admin@gmail.com
+2025-08-31T01:26:30.772+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.createtime,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone 
+    from
+        irctc_users u1_0 
+    where
+        u1_0.email=?
+2025-08-31T01:26:30.773+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        r1_0.irctc_users_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        irctc_users_roles r1_0 
+    join
+        irctc_roles r1_1 
+            on r1_1.id=r1_0.roles_id 
+    where
+        r1_0.irctc_users_id=?
+2025-08-31T01:26:30.774+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-3] c.a.i.c.s.JwtAuthenticationFilter        : Authentication set in the Security Context
+2025-08-31T01:26:30.775+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/admin/stations", parameters={}
+2025-08-31T01:26:30.775+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ajinkyabhutkar.irctc.controller.admin.StationController#createStation(StationDto)
+2025-08-31T01:26:30.775+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.ajinkyabhutkar.irctc.dto.StationDto@43de777]
+2025-08-31T01:26:30.776+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    insert 
+    into
+        irctc_stations
+        (city, code, createtime, name, state) 
+    values
+        (?, ?, ?, ?, ?)
+2025-08-31T01:26:30.778+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2025-08-31T01:26:30.779+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.ajinkyabhutkar.irctc.dto.StationDto@4e0d9d75]
+2025-08-31T01:26:30.779+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2025-08-31T01:26:41.389+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-1] c.a.i.c.s.JwtAuthenticationFilter        : Request to the JWT Filter : Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NTY1ODM3NDksImV4cCI6MTc1NjU4NzM0OX0.LeXYPN1paKzaHa-0ksGMFwgN5A5SJbF-EFeOD8-bGtJrBhTwGiySTxQj0heyMHMmbmxpxzUFVsRaSZ98BYhdIA
+2025-08-31T01:26:41.390+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-1] c.a.i.c.s.JwtAuthenticationFilter        : user name : admin@gmail.com
+2025-08-31T01:26:41.391+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.createtime,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone 
+    from
+        irctc_users u1_0 
+    where
+        u1_0.email=?
+2025-08-31T01:26:41.392+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        r1_0.irctc_users_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        irctc_users_roles r1_0 
+    join
+        irctc_roles r1_1 
+            on r1_1.id=r1_0.roles_id 
+    where
+        r1_0.irctc_users_id=?
+2025-08-31T01:26:41.394+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-1] c.a.i.c.s.JwtAuthenticationFilter        : Authentication set in the Security Context
+2025-08-31T01:26:41.394+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/admin/stations", parameters={}
+2025-08-31T01:26:41.394+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ajinkyabhutkar.irctc.controller.admin.StationController#createStation(StationDto)
+2025-08-31T01:26:41.395+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.ajinkyabhutkar.irctc.dto.StationDto@7ddb80d]
+2025-08-31T01:26:41.396+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    insert 
+    into
+        irctc_stations
+        (city, code, createtime, name, state) 
+    values
+        (?, ?, ?, ?, ?)
+2025-08-31T01:26:41.399+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2025-08-31T01:26:41.399+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.ajinkyabhutkar.irctc.dto.StationDto@5f759c04]
+2025-08-31T01:26:41.399+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2025-08-31T01:26:56.160+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-9] c.a.i.c.s.JwtAuthenticationFilter        : Request to the JWT Filter : Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NTY1ODM3NDksImV4cCI6MTc1NjU4NzM0OX0.LeXYPN1paKzaHa-0ksGMFwgN5A5SJbF-EFeOD8-bGtJrBhTwGiySTxQj0heyMHMmbmxpxzUFVsRaSZ98BYhdIA
+2025-08-31T01:26:56.160+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-9] c.a.i.c.s.JwtAuthenticationFilter        : user name : admin@gmail.com
+2025-08-31T01:26:56.161+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.createtime,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone 
+    from
+        irctc_users u1_0 
+    where
+        u1_0.email=?
+2025-08-31T01:26:56.163+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        r1_0.irctc_users_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        irctc_users_roles r1_0 
+    join
+        irctc_roles r1_1 
+            on r1_1.id=r1_0.roles_id 
+    where
+        r1_0.irctc_users_id=?
+2025-08-31T01:26:56.164+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-9] c.a.i.c.s.JwtAuthenticationFilter        : Authentication set in the Security Context
+2025-08-31T01:26:56.164+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : POST "/admin/stations", parameters={}
+2025-08-31T01:26:56.165+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ajinkyabhutkar.irctc.controller.admin.StationController#createStation(StationDto)
+2025-08-31T01:26:56.165+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.ajinkyabhutkar.irctc.dto.StationDto@7d055164]
+2025-08-31T01:26:56.166+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    insert 
+    into
+        irctc_stations
+        (city, code, createtime, name, state) 
+    values
+        (?, ?, ?, ?, ?)
+2025-08-31T01:26:56.169+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2025-08-31T01:26:56.169+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.ajinkyabhutkar.irctc.dto.StationDto@171ce499]
+2025-08-31T01:26:56.169+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2025-08-31T01:27:44.388+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-4] c.a.i.c.s.JwtAuthenticationFilter        : Request to the JWT Filter : Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NTY1MzUyNDEsImV4cCI6MTc1NjUzODg0MX0.P07dg347brL1_GoeGomjJGe4FohgXNX8aUI8JeWI3EQBfywrszfz-OA4IuPj1_50nlFM-fNgZ1uAq50vDkOj2w
+2025-08-31T01:27:44.388+05:30 ERROR 8976 --- [irctc-backend] [http-nio-8080-exec-4] c.a.i.c.s.JwtAuthenticationFilter        : JWT Token has expired
+2025-08-31T01:28:00.393+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-6] c.a.i.c.s.JwtAuthenticationFilter        : Request to the JWT Filter : Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NTY1ODM3NDksImV4cCI6MTc1NjU4NzM0OX0.LeXYPN1paKzaHa-0ksGMFwgN5A5SJbF-EFeOD8-bGtJrBhTwGiySTxQj0heyMHMmbmxpxzUFVsRaSZ98BYhdIA
+2025-08-31T01:28:00.393+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-6] c.a.i.c.s.JwtAuthenticationFilter        : user name : admin@gmail.com
+2025-08-31T01:28:00.394+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.createtime,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone 
+    from
+        irctc_users u1_0 
+    where
+        u1_0.email=?
+2025-08-31T01:28:00.396+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        r1_0.irctc_users_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        irctc_users_roles r1_0 
+    join
+        irctc_roles r1_1 
+            on r1_1.id=r1_0.roles_id 
+    where
+        r1_0.irctc_users_id=?
+2025-08-31T01:28:00.397+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-6] c.a.i.c.s.JwtAuthenticationFilter        : Authentication set in the Security Context
+2025-08-31T01:28:00.397+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : POST "/admin/trains", parameters={}
+2025-08-31T01:28:00.397+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ajinkyabhutkar.irctc.controller.admin.TrainController#createTrain(TrainDTO)
+2025-08-31T01:28:00.398+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.ajinkyabhutkar.irctc.dto.TrainDTO@b8e52c0]
+2025-08-31T01:28:00.399+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        s1_0.id,
+        s1_0.city,
+        s1_0.code,
+        s1_0.createtime,
+        s1_0.name,
+        s1_0.state 
+    from
+        irctc_stations s1_0 
+    where
+        s1_0.id=?
+2025-08-31T01:28:00.401+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        s1_0.id,
+        s1_0.city,
+        s1_0.code,
+        s1_0.createtime,
+        s1_0.name,
+        s1_0.state 
+    from
+        irctc_stations s1_0 
+    where
+        s1_0.id=?
+2025-08-31T01:28:00.402+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    insert 
+    into
+        irctc_trains
+        (destination_station_id, name, number, source_station_id, total_travel_distance) 
+    values
+        (?, ?, ?, ?, ?)
+2025-08-31T01:28:00.405+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2025-08-31T01:28:00.405+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.ajinkyabhutkar.irctc.dto.TrainDTO@357114ef]
+2025-08-31T01:28:00.405+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2025-08-31T01:28:33.568+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-7] c.a.i.c.s.JwtAuthenticationFilter        : Request to the JWT Filter : Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NTY1ODM3NDksImV4cCI6MTc1NjU4NzM0OX0.LeXYPN1paKzaHa-0ksGMFwgN5A5SJbF-EFeOD8-bGtJrBhTwGiySTxQj0heyMHMmbmxpxzUFVsRaSZ98BYhdIA
+2025-08-31T01:28:33.568+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-7] c.a.i.c.s.JwtAuthenticationFilter        : user name : admin@gmail.com
+2025-08-31T01:28:33.569+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.createtime,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone 
+    from
+        irctc_users u1_0 
+    where
+        u1_0.email=?
+2025-08-31T01:28:33.571+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        r1_0.irctc_users_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        irctc_users_roles r1_0 
+    join
+        irctc_roles r1_1 
+            on r1_1.id=r1_0.roles_id 
+    where
+        r1_0.irctc_users_id=?
+2025-08-31T01:28:33.572+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-7] c.a.i.c.s.JwtAuthenticationFilter        : Authentication set in the Security Context
+2025-08-31T01:28:33.572+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/admin/trains", parameters={}
+2025-08-31T01:28:33.572+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ajinkyabhutkar.irctc.controller.admin.TrainController#createTrain(TrainDTO)
+2025-08-31T01:28:33.573+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.ajinkyabhutkar.irctc.dto.TrainDTO@2f15ff66]
+2025-08-31T01:28:33.574+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        s1_0.id,
+        s1_0.city,
+        s1_0.code,
+        s1_0.createtime,
+        s1_0.name,
+        s1_0.state 
+    from
+        irctc_stations s1_0 
+    where
+        s1_0.id=?
+2025-08-31T01:28:33.575+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        s1_0.id,
+        s1_0.city,
+        s1_0.code,
+        s1_0.createtime,
+        s1_0.name,
+        s1_0.state 
+    from
+        irctc_stations s1_0 
+    where
+        s1_0.id=?
+2025-08-31T01:28:33.576+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    insert 
+    into
+        irctc_trains
+        (destination_station_id, name, number, source_station_id, total_travel_distance) 
+    values
+        (?, ?, ?, ?, ?)
+2025-08-31T01:28:33.579+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2025-08-31T01:28:33.579+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.ajinkyabhutkar.irctc.dto.TrainDTO@3a392713]
+2025-08-31T01:28:33.579+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2025-08-31T01:32:49.615+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-5] c.a.i.c.s.JwtAuthenticationFilter        : Request to the JWT Filter : Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NTY1ODM3NDksImV4cCI6MTc1NjU4NzM0OX0.LeXYPN1paKzaHa-0ksGMFwgN5A5SJbF-EFeOD8-bGtJrBhTwGiySTxQj0heyMHMmbmxpxzUFVsRaSZ98BYhdIA
+2025-08-31T01:32:49.615+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-5] c.a.i.c.s.JwtAuthenticationFilter        : user name : admin@gmail.com
+2025-08-31T01:32:49.616+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.createtime,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone 
+    from
+        irctc_users u1_0 
+    where
+        u1_0.email=?
+2025-08-31T01:32:49.618+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        r1_0.irctc_users_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        irctc_users_roles r1_0 
+    join
+        irctc_roles r1_1 
+            on r1_1.id=r1_0.roles_id 
+    where
+        r1_0.irctc_users_id=?
+2025-08-31T01:32:49.619+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-5] c.a.i.c.s.JwtAuthenticationFilter        : Authentication set in the Security Context
+2025-08-31T01:32:49.619+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/admin/train-schedules", parameters={}
+2025-08-31T01:32:49.619+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ajinkyabhutkar.irctc.controller.admin.TrainScheduleController#createTrainSchedule(TrainScheduleDto)
+2025-08-31T01:32:49.622+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.ajinkyabhutkar.irctc.dto.TrainScheduleDto@3ac6a8a]
+2025-08-31T01:32:49.623+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        t1_0.id,
+        ds1_0.id,
+        ds1_0.city,
+        ds1_0.code,
+        ds1_0.createtime,
+        ds1_0.name,
+        ds1_0.state,
+        t1_0.name,
+        t1_0.number,
+        ss1_0.id,
+        ss1_0.city,
+        ss1_0.code,
+        ss1_0.createtime,
+        ss1_0.name,
+        ss1_0.state,
+        t1_0.total_travel_distance 
+    from
+        irctc_trains t1_0 
+    left join
+        irctc_stations ds1_0 
+            on ds1_0.id=t1_0.destination_station_id 
+    left join
+        irctc_stations ss1_0 
+            on ss1_0.id=t1_0.source_station_id 
+    where
+        t1_0.id=?
+2025-08-31T01:32:49.627+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    insert 
+    into
+        irctc_train_schedule
+        (available_seats, run_date, train_id) 
+    values
+        (?, ?, ?)
+2025-08-31T01:32:49.631+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2025-08-31T01:32:49.631+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.ajinkyabhutkar.irctc.dto.TrainScheduleDto@196d339b]
+2025-08-31T01:32:49.632+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2025-08-31T01:33:00.518+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-2] c.a.i.c.s.JwtAuthenticationFilter        : Request to the JWT Filter : Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NTY1ODM3NDksImV4cCI6MTc1NjU4NzM0OX0.LeXYPN1paKzaHa-0ksGMFwgN5A5SJbF-EFeOD8-bGtJrBhTwGiySTxQj0heyMHMmbmxpxzUFVsRaSZ98BYhdIA
+2025-08-31T01:33:00.518+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-2] c.a.i.c.s.JwtAuthenticationFilter        : user name : admin@gmail.com
+2025-08-31T01:33:00.520+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.createtime,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone 
+    from
+        irctc_users u1_0 
+    where
+        u1_0.email=?
+2025-08-31T01:33:00.521+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        r1_0.irctc_users_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        irctc_users_roles r1_0 
+    join
+        irctc_roles r1_1 
+            on r1_1.id=r1_0.roles_id 
+    where
+        r1_0.irctc_users_id=?
+2025-08-31T01:33:00.522+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-2] c.a.i.c.s.JwtAuthenticationFilter        : Authentication set in the Security Context
+2025-08-31T01:33:00.523+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/admin/train-schedules", parameters={}
+2025-08-31T01:33:00.523+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ajinkyabhutkar.irctc.controller.admin.TrainScheduleController#createTrainSchedule(TrainScheduleDto)
+2025-08-31T01:33:00.523+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.ajinkyabhutkar.irctc.dto.TrainScheduleDto@5d3cd0d2]
+2025-08-31T01:33:00.524+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        t1_0.id,
+        ds1_0.id,
+        ds1_0.city,
+        ds1_0.code,
+        ds1_0.createtime,
+        ds1_0.name,
+        ds1_0.state,
+        t1_0.name,
+        t1_0.number,
+        ss1_0.id,
+        ss1_0.city,
+        ss1_0.code,
+        ss1_0.createtime,
+        ss1_0.name,
+        ss1_0.state,
+        t1_0.total_travel_distance 
+    from
+        irctc_trains t1_0 
+    left join
+        irctc_stations ds1_0 
+            on ds1_0.id=t1_0.destination_station_id 
+    left join
+        irctc_stations ss1_0 
+            on ss1_0.id=t1_0.source_station_id 
+    where
+        t1_0.id=?
+2025-08-31T01:33:00.525+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    insert 
+    into
+        irctc_train_schedule
+        (available_seats, run_date, train_id) 
+    values
+        (?, ?, ?)
+2025-08-31T01:33:00.528+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2025-08-31T01:33:00.528+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.ajinkyabhutkar.irctc.dto.TrainScheduleDto@80a7b16]
+2025-08-31T01:33:00.529+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2025-08-31T01:33:04.976+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-3] c.a.i.c.s.JwtAuthenticationFilter        : Request to the JWT Filter : Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhamlua3lhYmh1dGthciIsImlhdCI6MTc1NTk2NjI3NywiZXhwIjoxNzU1OTY5ODc3fQ.RemX_pKVNQ9PmKq3Gb8KEToJ7uh10fRKDMWotqBXqFFXs5qizLtjVmyU87gGz4yEpK8yDhQqSXl6J6cln-ydgw
+2025-08-31T01:33:04.976+05:30 ERROR 8976 --- [irctc-backend] [http-nio-8080-exec-3] c.a.i.c.s.JwtAuthenticationFilter        : JWT Token has expired
+2025-08-31T01:33:09.187+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-1] c.a.i.c.s.JwtAuthenticationFilter        : Request to the JWT Filter : Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NTY1ODM3NDksImV4cCI6MTc1NjU4NzM0OX0.LeXYPN1paKzaHa-0ksGMFwgN5A5SJbF-EFeOD8-bGtJrBhTwGiySTxQj0heyMHMmbmxpxzUFVsRaSZ98BYhdIA
+2025-08-31T01:33:09.187+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-1] c.a.i.c.s.JwtAuthenticationFilter        : user name : admin@gmail.com
+2025-08-31T01:33:09.188+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.createtime,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone 
+    from
+        irctc_users u1_0 
+    where
+        u1_0.email=?
+2025-08-31T01:33:09.190+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        r1_0.irctc_users_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        irctc_users_roles r1_0 
+    join
+        irctc_roles r1_1 
+            on r1_1.id=r1_0.roles_id 
+    where
+        r1_0.irctc_users_id=?
+2025-08-31T01:33:09.191+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-1] c.a.i.c.s.JwtAuthenticationFilter        : Authentication set in the Security Context
+2025-08-31T01:33:09.191+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/admin/train-schedules/train/2", parameters={}
+2025-08-31T01:33:09.192+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ajinkyabhutkar.irctc.controller.admin.TrainScheduleController#findTrainSchedule(Long)
+2025-08-31T01:33:09.197+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        ts1_0.id,
+        ts1_0.available_seats,
+        ts1_0.run_date,
+        ts1_0.train_id 
+    from
+        irctc_train_schedule ts1_0 
+    where
+        ts1_0.train_id=?
+2025-08-31T01:33:09.200+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        t1_0.id,
+        ds1_0.id,
+        ds1_0.city,
+        ds1_0.code,
+        ds1_0.createtime,
+        ds1_0.name,
+        ds1_0.state,
+        t1_0.name,
+        t1_0.number,
+        ss1_0.id,
+        ss1_0.city,
+        ss1_0.code,
+        ss1_0.createtime,
+        ss1_0.name,
+        ss1_0.state,
+        t1_0.total_travel_distance 
+    from
+        irctc_trains t1_0 
+    left join
+        irctc_stations ds1_0 
+            on ds1_0.id=t1_0.destination_station_id 
+    left join
+        irctc_stations ss1_0 
+            on ss1_0.id=t1_0.source_station_id 
+    where
+        t1_0.id=?
+2025-08-31T01:33:09.203+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2025-08-31T01:33:09.203+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.ajinkyabhutkar.irctc.dto.TrainScheduleDto@79e998c5]]
+2025-08-31T01:33:09.204+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-08-31T01:34:57.101+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-6] c.a.i.c.s.JwtAuthenticationFilter        : Request to the JWT Filter : Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhamlua3lhYmh1dGthciIsImlhdCI6MTc1NTk3MTQ0MSwiZXhwIjoxNzU1OTc1MDQxfQ.zm3LJc5G6RBo-PHV3bxYXvgcCxmgCZGH30fr2YvSh73t6ShM0H8RJs3rfZTW7kAOX7gaFgqZ1kPmQqQG2RRI3g
+2025-08-31T01:34:57.101+05:30 ERROR 8976 --- [irctc-backend] [http-nio-8080-exec-6] c.a.i.c.s.JwtAuthenticationFilter        : JWT Token has expired
+2025-08-31T01:35:14.040+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-7] c.a.i.c.s.JwtAuthenticationFilter        : Request to the JWT Filter : Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NTY1ODM3NDksImV4cCI6MTc1NjU4NzM0OX0.LeXYPN1paKzaHa-0ksGMFwgN5A5SJbF-EFeOD8-bGtJrBhTwGiySTxQj0heyMHMmbmxpxzUFVsRaSZ98BYhdIA
+2025-08-31T01:35:14.040+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-7] c.a.i.c.s.JwtAuthenticationFilter        : user name : admin@gmail.com
+2025-08-31T01:35:14.041+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.createtime,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone 
+    from
+        irctc_users u1_0 
+    where
+        u1_0.email=?
+2025-08-31T01:35:14.043+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        r1_0.irctc_users_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        irctc_users_roles r1_0 
+    join
+        irctc_roles r1_1 
+            on r1_1.id=r1_0.roles_id 
+    where
+        r1_0.irctc_users_id=?
+2025-08-31T01:35:14.044+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-7] c.a.i.c.s.JwtAuthenticationFilter        : Authentication set in the Security Context
+2025-08-31T01:35:14.044+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/admin/train-seats", parameters={}
+2025-08-31T01:35:14.045+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ajinkyabhutkar.irctc.controller.admin.TrainSeatController#createTrainSeat(TrainSeatDto)
+2025-08-31T01:35:14.046+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.ajinkyabhutkar.irctc.dto.TrainSeatDto@6ff6ab32]
+2025-08-31T01:35:14.047+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        ts1_0.id,
+        ts1_0.available_seats,
+        ts1_0.run_date,
+        t1_0.id,
+        ds1_0.id,
+        ds1_0.city,
+        ds1_0.code,
+        ds1_0.createtime,
+        ds1_0.name,
+        ds1_0.state,
+        t1_0.name,
+        t1_0.number,
+        ss1_0.id,
+        ss1_0.city,
+        ss1_0.code,
+        ss1_0.createtime,
+        ss1_0.name,
+        ss1_0.state,
+        t1_0.total_travel_distance 
+    from
+        irctc_train_schedule ts1_0 
+    left join
+        irctc_trains t1_0 
+            on t1_0.id=ts1_0.train_id 
+    left join
+        irctc_stations ds1_0 
+            on ds1_0.id=t1_0.destination_station_id 
+    left join
+        irctc_stations ss1_0 
+            on ss1_0.id=t1_0.source_station_id 
+    where
+        ts1_0.id=?
+2025-08-31T01:35:14.051+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    insert 
+    into
+        irctc_train_seats
+        (available_seats, coach_type, next_to_assign, price, seat_number_to_assign, seat_order, total_seats, train_schedule_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2025-08-31T01:35:14.058+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2025-08-31T01:35:14.058+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.ajinkyabhutkar.irctc.dto.TrainSeatDto@4b94a999]
+2025-08-31T01:35:14.059+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2025-08-31T01:35:48.662+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-8] c.a.i.c.s.JwtAuthenticationFilter        : Request to the JWT Filter : Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NTY1ODM3NDksImV4cCI6MTc1NjU4NzM0OX0.LeXYPN1paKzaHa-0ksGMFwgN5A5SJbF-EFeOD8-bGtJrBhTwGiySTxQj0heyMHMmbmxpxzUFVsRaSZ98BYhdIA
+2025-08-31T01:35:48.662+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-8] c.a.i.c.s.JwtAuthenticationFilter        : user name : admin@gmail.com
+2025-08-31T01:35:48.663+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.createtime,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone 
+    from
+        irctc_users u1_0 
+    where
+        u1_0.email=?
+2025-08-31T01:35:48.664+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        r1_0.irctc_users_id,
+        r1_1.id,
+        r1_1.name 
+    from
+        irctc_users_roles r1_0 
+    join
+        irctc_roles r1_1 
+            on r1_1.id=r1_0.roles_id 
+    where
+        r1_0.irctc_users_id=?
+2025-08-31T01:35:48.666+05:30 TRACE 8976 --- [irctc-backend] [http-nio-8080-exec-8] c.a.i.c.s.JwtAuthenticationFilter        : Authentication set in the Security Context
+2025-08-31T01:35:48.666+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : POST "/admin/train-seats", parameters={}
+2025-08-31T01:35:48.666+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ajinkyabhutkar.irctc.controller.admin.TrainSeatController#createTrainSeat(TrainSeatDto)
+2025-08-31T01:35:48.667+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.ajinkyabhutkar.irctc.dto.TrainSeatDto@4e665ad1]
+2025-08-31T01:35:48.668+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        ts1_0.id,
+        ts1_0.available_seats,
+        ts1_0.run_date,
+        t1_0.id,
+        ds1_0.id,
+        ds1_0.city,
+        ds1_0.code,
+        ds1_0.createtime,
+        ds1_0.name,
+        ds1_0.state,
+        t1_0.name,
+        t1_0.number,
+        ss1_0.id,
+        ss1_0.city,
+        ss1_0.code,
+        ss1_0.createtime,
+        ss1_0.name,
+        ss1_0.state,
+        t1_0.total_travel_distance 
+    from
+        irctc_train_schedule ts1_0 
+    left join
+        irctc_trains t1_0 
+            on t1_0.id=ts1_0.train_id 
+    left join
+        irctc_stations ds1_0 
+            on ds1_0.id=t1_0.destination_station_id 
+    left join
+        irctc_stations ss1_0 
+            on ss1_0.id=t1_0.source_station_id 
+    where
+        ts1_0.id=?
+2025-08-31T01:35:48.670+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    insert 
+    into
+        irctc_train_seats
+        (available_seats, coach_type, next_to_assign, price, seat_number_to_assign, seat_order, total_seats, train_schedule_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2025-08-31T01:35:48.672+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2025-08-31T01:35:48.672+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.ajinkyabhutkar.irctc.dto.TrainSeatDto@41d48eb8]
+2025-08-31T01:35:48.673+05:30 DEBUG 8976 --- [irctc-backend] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2025-08-31T01:45:05.043+05:30 DEBUG 8976 --- [irctc-backend] [SpringApplicationShutdownHook] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed from ACCEPTING_TRAFFIC to REFUSING_TRAFFIC
+2025-08-31T01:45:05.043+05:30 DEBUG 8976 --- [irctc-backend] [SpringApplicationShutdownHook] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@c7ba306, started on Sat Aug 30 23:18:14 IST 2025
+2025-08-31T01:45:05.044+05:30  INFO 8976 --- [irctc-backend] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-31T01:45:05.048+05:30  INFO 8976 --- [irctc-backend] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-31T01:45:05.050+05:30  INFO 8976 --- [irctc-backend] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-31T01:45:05.052+05:30  INFO 8976 --- [irctc-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-08-31T01:45:05.053+05:30  INFO 8976 --- [irctc-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
