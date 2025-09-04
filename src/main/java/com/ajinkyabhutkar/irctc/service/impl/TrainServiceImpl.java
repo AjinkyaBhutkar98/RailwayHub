@@ -1,11 +1,10 @@
 package com.ajinkyabhutkar.irctc.service.impl;
 
-import com.ajinkyabhutkar.irctc.dto.PagedResponse;
-import com.ajinkyabhutkar.irctc.dto.StationDto;
-import com.ajinkyabhutkar.irctc.dto.TrainDTO;
+import com.ajinkyabhutkar.irctc.dto.*;
 import com.ajinkyabhutkar.irctc.entity.Station;
 import com.ajinkyabhutkar.irctc.entity.Train;
 import com.ajinkyabhutkar.irctc.repo.TrainRepo;
+import com.ajinkyabhutkar.irctc.repo.TrainScheduleRepo;
 import com.ajinkyabhutkar.irctc.service.StationService;
 import com.ajinkyabhutkar.irctc.service.TrainService;
 import org.modelmapper.ModelMapper;
@@ -26,14 +25,18 @@ public class TrainServiceImpl implements TrainService{
 
     private StationService stationService;
 
+
+    private TrainScheduleRepo trainScheduleRepo;
+
     private ModelMapper modelMapper;
 
     private List<Train> trainList=new ArrayList<>();
 
     @Autowired
-    public TrainServiceImpl(TrainRepo trainRepo, StationService stationService, ModelMapper modelMapper, List<Train> trainList) {
+    public TrainServiceImpl(TrainRepo trainRepo, StationService stationService, TrainScheduleRepo trainScheduleRepo, ModelMapper modelMapper, List<Train> trainList) {
         this.trainRepo = trainRepo;
         this.stationService = stationService;
+        this.trainScheduleRepo = trainScheduleRepo;
         this.modelMapper = modelMapper;
         this.trainList = trainList;
     }
@@ -144,6 +147,17 @@ public class TrainServiceImpl implements TrainService{
 
 //        List<TrainDTO> trainDTOS=modelMapper.map(namedTrains->namedTrains)
         return namedTrains.stream() .map(train -> modelMapper.map(train, TrainDTO.class)) .toList();
+    }
+
+
+    @Override
+    public List<AvailableTrainResponse> userTrainSearch(UserTrainSearchRequest userTrainSearchRequest) {
+
+        List<Train> matchedTrains=this.trainRepo.findTrainBySourceAndDestinationInOrder(userTrainSearchRequest.getSourceStationId(),userTrainSearchRequest.getDestinationStationId());
+
+
+        return null;
+
     }
 
 

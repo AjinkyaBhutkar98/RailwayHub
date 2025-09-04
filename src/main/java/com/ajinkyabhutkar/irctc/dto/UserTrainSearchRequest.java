@@ -13,8 +13,8 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class UserTrainSearchRequest {
 
-    private Long stationId;
-    private long destinationId;
+    private Long sourceStationId;
+    private long destinationStationId;
     private LocalDate journeyDate;
 
 }

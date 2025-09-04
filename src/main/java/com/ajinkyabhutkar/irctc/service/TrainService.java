@@ -1,8 +1,6 @@
 package com.ajinkyabhutkar.irctc.service;
 
-import com.ajinkyabhutkar.irctc.dto.PagedResponse;
-import com.ajinkyabhutkar.irctc.dto.StationDto;
-import com.ajinkyabhutkar.irctc.dto.TrainDTO;
+import com.ajinkyabhutkar.irctc.dto.*;
 import com.ajinkyabhutkar.irctc.entity.Station;
 import com.ajinkyabhutkar.irctc.entity.Train;
 import com.ajinkyabhutkar.irctc.exceptions.TrainNotFoundException;
@@ -38,5 +36,8 @@ public interface TrainService {
     public void deleteTrain(Long id);
 
     public List<TrainDTO> searchByName(String name);
+
+    //search trains
+    List<AvailableTrainResponse> userTrainSearch(UserTrainSearchRequest userTrainSearchRequest);
 
 }
