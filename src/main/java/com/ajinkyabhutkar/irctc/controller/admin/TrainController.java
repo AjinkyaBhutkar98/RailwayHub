@@ -20,8 +20,13 @@ import java.util.List;
 @RequestMapping("/admin/trains")
 public class TrainController {
 
-    @Autowired
+
     private TrainService trainService;
+
+    @Autowired
+    public TrainController(TrainService trainService) {
+        this.trainService = trainService;
+    }
 
     @PostMapping
     @Operation(summary = "create train", description = "create train with this api")

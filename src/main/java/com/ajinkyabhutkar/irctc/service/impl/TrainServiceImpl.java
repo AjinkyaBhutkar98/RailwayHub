@@ -1,8 +1,7 @@
 package com.ajinkyabhutkar.irctc.service.impl;
 
 import com.ajinkyabhutkar.irctc.dto.*;
-import com.ajinkyabhutkar.irctc.entity.Station;
-import com.ajinkyabhutkar.irctc.entity.Train;
+import com.ajinkyabhutkar.irctc.entity.*;
 import com.ajinkyabhutkar.irctc.repo.TrainRepo;
 import com.ajinkyabhutkar.irctc.repo.TrainScheduleRepo;
 import com.ajinkyabhutkar.irctc.service.StationService;
@@ -15,11 +14,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Service
-public class TrainServiceImpl implements TrainService{
+public class TrainServiceImpl implements TrainService {
 
     private TrainRepo trainRepo;
 
@@ -30,7 +28,7 @@ public class TrainServiceImpl implements TrainService{
 
     private ModelMapper modelMapper;
 
-    private List<Train> trainList=new ArrayList<>();
+    private List<Train> trainList = new ArrayList<>();
 
     @Autowired
     public TrainServiceImpl(TrainRepo trainRepo, StationService stationService, TrainScheduleRepo trainScheduleRepo, ModelMapper modelMapper, List<Train> trainList) {
@@ -41,18 +39,18 @@ public class TrainServiceImpl implements TrainService{
         this.trainList = trainList;
     }
 
-    public TrainServiceImpl(){
+    public TrainServiceImpl() {
 
     }
 
-    public TrainDTO addTrain(TrainDTO trainDTO){
+    public TrainDTO addTrain(TrainDTO trainDTO) {
 
-        Train newTrain=new Train();
+        Train newTrain = new Train();
 
-        StationDto sourceStationDto=stationService.getStationById(trainDTO.getSourceStation().getId());
-        StationDto destinationStationDto=stationService.getStationById(trainDTO.getDestinationStation().getId());
-        Station sourcestation=modelMapper.map(sourceStationDto,Station.class);
-        Station destinationstation=modelMapper.map(destinationStationDto,Station.class);
+        StationDto sourceStationDto = stationService.getStationById(trainDTO.getSourceStation().getId());
+        StationDto destinationStationDto = stationService.getStationById(trainDTO.getDestinationStation().getId());
+        Station sourcestation = modelMapper.map(sourceStationDto, Station.class);
+        Station destinationstation = modelMapper.map(destinationStationDto, Station.class);
         System.out.println(sourceStationDto.getId());
 
         newTrain.setName(trainDTO.getName());
@@ -62,9 +60,9 @@ public class TrainServiceImpl implements TrainService{
         newTrain.setTotalTravelDistance(trainDTO.getTotalTravelDistance());
 
 
-        Train train=trainRepo.save(newTrain);
+        Train train = trainRepo.save(newTrain);
 
-        TrainDTO trainDTO1=modelMapper.map(train, TrainDTO.class);
+        TrainDTO trainDTO1 = modelMapper.map(train, TrainDTO.class);
 
 
         return trainDTO1;
@@ -81,59 +79,59 @@ public class TrainServiceImpl implements TrainService{
     }
 
 
-    public TrainDTO getTrain(Long trainNo){
+    public TrainDTO getTrain(Long trainNo) {
 
-        Train train=trainRepo.findById(trainNo).orElseThrow(()->new RuntimeException("Train not found!!"));
+        Train train = trainRepo.findById(trainNo).orElseThrow(() -> new RuntimeException("Train not found!!"));
 
         return modelMapper.map(train, TrainDTO.class);
 
     }
 
-    public TrainDTO delete(Long trainNo){
+    public TrainDTO delete(Long trainNo) {
 
-        Train train=trainRepo.findById(trainNo).orElseThrow(()->new RuntimeException("Train not found!!"));
+        Train train = trainRepo.findById(trainNo).orElseThrow(() -> new RuntimeException("Train not found!!"));
 
         trainRepo.delete(train);
 
-        return modelMapper.map(train,TrainDTO.class);
+        return modelMapper.map(train, TrainDTO.class);
     }
 
     public PagedResponse<TrainDTO> getAllTrains(
             int page, int size, String sortBy, String sortDir
 
-    ){
-        Sort sort= sortDir.trim().equalsIgnoreCase("asc")? Sort.by(sortBy).ascending():Sort.by(sortBy).descending();
+    ) {
+        Sort sort = sortDir.trim().equalsIgnoreCase("asc") ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending();
         // pass page size(from method arguments) sort
 
-        Pageable pageable= PageRequest.of(page,size,sort);
+        Pageable pageable = PageRequest.of(page, size, sort);
         //it will content data
 
         Page<Train> trainPage = trainRepo.findAll(pageable);
 
-        Page<TrainDTO> page2=trainPage.map(train->modelMapper.map(train,TrainDTO.class));
+        Page<TrainDTO> page2 = trainPage.map(train -> modelMapper.map(train, TrainDTO.class));
 
         return PagedResponse.fromPage(page2);
 
     }
 
-    public TrainDTO updateTrain(Long id,TrainDTO trainDTO){
+    public TrainDTO updateTrain(Long id, TrainDTO trainDTO) {
 
-        Train train=trainRepo.findById(id).orElseThrow(()->new RuntimeException("Train not found!!"));
+        Train train = trainRepo.findById(id).orElseThrow(() -> new RuntimeException("Train not found!!"));
         train.setName(trainDTO.getName());
         train.setNumber(trainDTO.getNumber());
         train.setTotalTravelDistance(trainDTO.getTotalTravelDistance());
         train.setSourceStation(train.getSourceStation());
         train.setDestinationStation(train.getDestinationStation());
 
-        Train savedTrain=trainRepo.save(train);
+        Train savedTrain = trainRepo.save(train);
 
-        return modelMapper.map(savedTrain,TrainDTO.class);
+        return modelMapper.map(savedTrain, TrainDTO.class);
 
     }
 
-    public void deleteTrain(Long id){
+    public void deleteTrain(Long id) {
 
-        Train train=trainRepo.findById(id).orElseThrow(()->new RuntimeException("Train not found!!"));
+        Train train = trainRepo.findById(id).orElseThrow(() -> new RuntimeException("Train not found!!"));
 
         trainRepo.delete(train);
 
@@ -143,20 +141,85 @@ public class TrainServiceImpl implements TrainService{
     @Override
     public List<TrainDTO> searchByName(String name) {
 
-        List<Train> namedTrains=trainRepo.findByNameContainingIgnoreCase(name);
+        List<Train> namedTrains = trainRepo.findByNameContainingIgnoreCase(name);
 
 //        List<TrainDTO> trainDTOS=modelMapper.map(namedTrains->namedTrains)
-        return namedTrains.stream() .map(train -> modelMapper.map(train, TrainDTO.class)) .toList();
+        return namedTrains.stream().map(train -> modelMapper.map(train, TrainDTO.class)).toList();
     }
 
 
     @Override
     public List<AvailableTrainResponse> userTrainSearch(UserTrainSearchRequest userTrainSearchRequest) {
 
-        List<Train> matchedTrains=this.trainRepo.findTrainBySourceAndDestinationInOrder(userTrainSearchRequest.getSourceStationId(),userTrainSearchRequest.getDestinationStationId());
+        List<Train> matchedTrains = this.trainRepo.findTrainBySourceAndDestination(userTrainSearchRequest.getSourceStationId(), userTrainSearchRequest.getDestinationStationId());
+
+        //first we find all available trains for that rundate
+        List<Train> validTrains = new ArrayList<>();
+
+        for (Train train : matchedTrains) {
+
+            Integer sourceStationOrder = null;
+            Integer destinationStationOrder = null;
+
+            for (TrainRoute trainRoute : train.getRoutes()) {
+
+                if (trainRoute.getStation().getId().equals(userTrainSearchRequest.getSourceStationId())) {
+                    sourceStationOrder = trainRoute.getStationOrder();
+                } else if (trainRoute.getStation().getId().equals(userTrainSearchRequest.getDestinationStationId())) {
+                    destinationStationOrder = trainRoute.getStationOrder();
+                }
+
+            }
+
+            //check if available for that day
+            boolean isTrainAvailable = train.getSchedules().stream().anyMatch(schedule -> schedule.getRunDate().equals(userTrainSearchRequest.getJourneyDate()));
+
+            if (sourceStationOrder != null && destinationStationOrder != null && sourceStationOrder < destinationStationOrder) {
+
+                validTrains.add(train);
+            }
+
+        }
+
+        //secondly we get all available schedules for that train
+        List<AvailableTrainResponse> availableTrainResponses = new ArrayList<>();
+
+        for (Train t : validTrains) {
+
+            TrainSchedule trainSchedule = t.getSchedules().stream().filter(trainSchedule1 -> trainSchedule1.getRunDate().equals(userTrainSearchRequest.getJourneyDate())).findFirst().orElse(null);
+
+            Map<CoachType, Integer> seatsMap = new HashMap<>();
+            Map<CoachType, Double> priceMap = new HashMap<>();
+
+            TrainRoute sourceRoute = t.getRoutes().stream().filter(r -> r.getStation().getId().equals(userTrainSearchRequest.getSourceStationId())).findFirst().orElse(null);
+//            TrainRoute destinationRoute = t.getRoutes().stream().filter(r -> r.getStation().getId().equals(userTrainSearchRequest.getDestinationStationId())).findFirst().orElse(null);
+//
+//            if (sourceRoute != null || destinationRoute != null) {
+//                continue;
+//            }
+
+            for (TrainSeats seats : trainSchedule.getTrainSeats()) {
+                seatsMap.merge(seats.getCoachType(), seats.getAvailableSeats(), Integer::sum);
+                priceMap.putIfAbsent(seats.getCoachType(), seats.getPrice());
+            }
 
 
-        return null;
+            AvailableTrainResponse availableTrainResponse=AvailableTrainResponse.builder()
+                    .trainId(t.getId())
+                    .trainNumber(t.getNumber())
+                    .trainName(t.getName())
+                    .departureTime(sourceRoute.getDepartureTime())
+                    .arrivalTime(sourceRoute.getArrivalTime())
+                    .seatsAvailable(seatsMap)
+                    .priceByCoach(priceMap)
+                    .seatsAvailable(seatsMap)
+                    .priceByCoach(priceMap)
+                    .build();
+
+            availableTrainResponses.add(availableTrainResponse);
+        }
+
+        return availableTrainResponses;
 
     }
 

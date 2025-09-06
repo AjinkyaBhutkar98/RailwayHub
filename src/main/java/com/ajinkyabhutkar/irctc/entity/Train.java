@@ -23,7 +23,6 @@ public class Train {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     private String number;
 
     private String name;

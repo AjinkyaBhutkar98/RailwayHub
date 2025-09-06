@@ -5,7 +5,8 @@ import lombok.*;
 
 import java.time.LocalDateTime;
 
-@Entity(name = "irctc_stations")
+@Entity
+@Table(name = "irctc_stations")
 @Getter
 @Setter
 @NoArgsConstructor

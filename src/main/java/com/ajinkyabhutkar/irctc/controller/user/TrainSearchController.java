@@ -14,6 +14,7 @@ import java.util.List;
 @RequestMapping("/api/v1/users/trains")
 public class TrainSearchController {
 
+    @Autowired
     private TrainService trainService;
 
     @Autowired
@@ -24,6 +25,8 @@ public class TrainSearchController {
     @PostMapping("/search")
     public ResponseEntity<List<AvailableTrainResponse>> searchTrains(@RequestBody UserTrainSearchRequest userTrainSearchRequest){
 
+
+        return new ResponseEntity<>(trainService.userTrainSearch(userTrainSearchRequest),HttpStatus.OK);
 
     }
 

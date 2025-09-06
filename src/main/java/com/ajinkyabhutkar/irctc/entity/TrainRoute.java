@@ -5,7 +5,8 @@ import lombok.*;
 
 import java.time.LocalTime;
 
-@Entity(name="irctc_train_route")
+@Entity
+@Table(name="irctc_train_route")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
