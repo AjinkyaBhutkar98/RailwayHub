@@ -1,6 +1,6 @@
-# 🚆 RailConnect (Spring Boot Railway Reservation System)
+# 🚆 RailwayHub (Spring Boot Railway Reservation System)
 
-RailConnect is a **Spring Boot–based monolithic web application** inspired by the IRCTC platform. It provides an end-to-end railway reservation experience, allowing users to **register, authenticate securely, browse train schedules, book tickets, upload profile images, make payments, and cancel reservations** with ease.
+RailwayHub is a **Spring Boot–based monolithic web application** inspired by the IRCTC platform. It provides an end-to-end railway reservation experience, allowing users to **register, authenticate securely, browse train schedules, book tickets, upload profile images, make payments, and cancel reservations** with ease.
 
 The system is designed with modern backend practices, making it both **developer-friendly** and **production-ready**.
 
@@ -61,8 +61,8 @@ The system is designed with modern backend practices, making it both **developer
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/your-username/railconnect.git
-   cd railconnect
+   git clone https://github.com/your-username/RailwayHub.git
+   cd RailwayHub
    ```
 
 2. **Configure the database**
@@ -70,7 +70,7 @@ The system is designed with modern backend practices, making it both **developer
    * Update your `application.properties` with MySQL credentials:
 
      ```properties
-     spring.datasource.url=jdbc:mysql://localhost:3306/railconnect
+     spring.datasource.url=jdbc:mysql://localhost:3306/RailwayHub
      spring.datasource.username=root
      spring.datasource.password=yourpassword
      ```
