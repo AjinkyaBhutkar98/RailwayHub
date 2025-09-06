@@ -1,58 +1,48 @@
 # 🚆 RailwayHub (Spring Boot Railway Reservation System)
 
-RailwayHub is a **Spring Boot–based monolithic web application** inspired by the IRCTC platform. It provides an end-to-end railway reservation experience, allowing users to **register, authenticate securely, browse train schedules, book tickets, upload profile images, make payments, and cancel reservations** with ease.
+RailwayHub is a **Spring Boot–based monolithic web application** inspired by the IRCTC platform. It enables users to **register, authenticate securely, browse train schedules, book tickets, upload profile images, make payments, and cancel reservations**.
 
-The system is designed with modern backend practices, making it both **developer-friendly** and **production-ready**.
+It also includes an **Admin Panel** where administrators can **manage trains, stations, and seat configurations**, making it a complete end-to-end railway reservation system.
 
 ---
 
 ## ✨ Features
 
-* 🔐 **JWT Authentication & Authorization**
+### 👤 User Features
 
-  * Secure login and session management using **Spring Security** and **JWT tokens**.
-  * Role-based access control for users and admins.
+* 🔐 **Secure Authentication**
 
-* 📅 **Train Scheduling & Booking**
+  * JWT-based login & role-based access control with **Spring Security**.
+* 📅 **Train Schedules & Booking**
 
-  * Search and filter train schedules with **pagination** for performance.
-  * Reserve tickets with real-time availability checks.
+  * Search and filter trains with **pagination**.
+  * Book tickets and view reservation history.
+* 💳 **Payments & Cancellations**
 
-* 💳 **Payment & Cancellation Module**
+  * Mock payment integration for booking tickets.
+  * Ticket cancellation workflows with refund status updates.
+* 🖼️ **Profile Management**
 
-  * Mock payment gateway integration for ticket booking.
-  * Cancellation workflows with status updates.
+  * Upload and manage profile images.
 
-* 🖼️ **Image Upload**
+### 🛠️ Admin Features
 
-  * Upload and manage profile pictures using Spring Boot file-handling.
-
-* 🛠️ **Developer Productivity Enhancements**
-
-  * **Lombok** for reducing boilerplate code.
-  * **Builder pattern** for clean object creation.
-  * **Bean Validators** for enforcing data integrity at the API level.
-
-* 🗄️ **Database Integration**
-
-  * **MySQL** as the relational database.
-  * JPA/Hibernate ORM support with schema validation.
-
-* 📦 **Monolithic Architecture**
-
-  * Built as a single deployable Spring Boot service for simplicity and faster iteration.
+* 🚂 **Train Management** – Add, update, and remove train details.
+* 🪑 **Seat Management** – Configure seat layouts and availability.
+* 🏙️ **Station Management** – Manage stations and routes.
+* 📊 **Dashboard** – Monitor booking activities and system usage.
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **Backend Framework:** Spring Boot (with Spring Security, Spring Data JPA)
+* **Framework:** Spring Boot (with Spring Security, Spring Data JPA)
 * **Authentication:** JWT (JSON Web Token)
-* **ORM:** Hibernate / JPA
 * **Database:** MySQL
-* **Utilities:** Lombok, Bean Validation (JSR 380)
-* **Build Tool:** Maven / Gradle
+* **ORM:** Hibernate / JPA
+* **Libraries:** Lombok, Bean Validation (JSR 380)
 * **Architecture:** Monolithic
+* **Build Tool:** Maven / Gradle
 
 ---
 
@@ -61,19 +51,18 @@ The system is designed with modern backend practices, making it both **developer
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/your-username/RailwayHub.git
-   cd RailwayHub
+   git clone https://github.com/your-username/railwayhub.git
+   cd railwayhub
    ```
 
 2. **Configure the database**
+   Update `application.properties`:
 
-   * Update your `application.properties` with MySQL credentials:
-
-     ```properties
-     spring.datasource.url=jdbc:mysql://localhost:3306/RailwayHub
-     spring.datasource.username=root
-     spring.datasource.password=yourpassword
-     ```
+   ```properties
+   spring.datasource.url=jdbc:mysql://localhost:3306/railwayhub
+   spring.datasource.username=root
+   spring.datasource.password=yourpassword
+   ```
 
 3. **Run the application**
 
@@ -83,24 +72,28 @@ The system is designed with modern backend practices, making it both **developer
 
 4. **Access APIs**
 
-   * Swagger / Postman collection included for API testing.
+   * Swagger/Postman collection available for testing.
    * Example endpoints:
 
-     * `POST /auth/login` → Authenticate user with JWT
+     * `POST /auth/login` → Authenticate user/admin with JWT
      * `GET /trains?page=0&size=10` → Paginated list of trains
      * `POST /tickets/book` → Book a train ticket
+     * `POST /admin/trains` → Add a new train (Admin only)
+     * `POST /admin/stations` → Add a new station (Admin only)
 
 ---
 
 ## 📌 Future Enhancements
 
-* Role-based admin panel for managing trains and schedules.
+* Role-based admin dashboard UI with analytics.
+* Real-time train tracking integration.
 * Microservices-based refactoring for scalability.
-* Integration with real payment gateways.
-* Email/SMS notifications for booking confirmations.
+* Email/SMS notifications for bookings & cancellations.
 
 ---
 
 ## 📖 License
 
-This project is developed for **learning and demonstration purposes**. Feel free to fork, contribute, and enhance.
+This project is developed for **educational and demonstration purposes**. Contributions are welcome!
+
+---
